@@ -12,3 +12,6 @@ Route::view('contact', 'contact')->name('contact');
 //it will dynamically change every where
 Route::view('about-us', 'about')->name('about');
 Route::view('article', 'article')->name('article');
+Route::get('/migrations', function() {
+    return view('migration');
+});
