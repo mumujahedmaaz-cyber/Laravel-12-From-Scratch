@@ -1,13 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 //Route::view('/', 'home')->name('home');
-Route::get('/', function() {
-    $categories = DB::table('categories')->get();
-    return view('home', ['categories' => $categories]);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('contact', 'contact')->name('contact');
 // the route name is used inside blade like this
 // {{ route('rout_name') }} so if we changed the URL
