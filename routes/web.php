@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,9 @@ Route::view('contact', 'contact')->name('contact');
 //it will dynamically change every where
 Route::view('about-us', 'about')->name('about');
 Route::view('article', 'article')->name('article');
-Route::get('/migrations', function() {
+Route::get('/migrations', function () {
     return view('migration');
 });
+
+Route::get('posts/{post}', [PostController::class, 'show'])
+    ->name('post.show');
