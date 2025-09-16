@@ -15,10 +15,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->boolean('is_active')->default(false);
-            $table->unsignedInteger('views');
-            $table->foreignId('category_id');
+            $table->text('text')->nullable();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
